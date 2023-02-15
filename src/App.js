@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { data } from "./data";
+import Header from "./components/Header";
+import Lesson from "./components/Lesson";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Header />
+      <div className="lesson">
+        <h1
+          style={{
+            marginTop: "0",
+            textAlign: "center",
+            padding: "1rem 0",
+            color: "white",
+            fontFamily: "Tahoma",
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Lesson Reminder
+        </h1>
+        <div className="lesson-card">
+          {data.map(({ name, time, image }) => (
+            <Lesson name={name} time={time} image={image} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
